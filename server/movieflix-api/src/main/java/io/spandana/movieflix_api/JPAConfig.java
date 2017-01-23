@@ -24,7 +24,7 @@ public class JPAConfig {
 	public LocalContainerEntityManagerFactoryBean createEmf() {
 		LocalContainerEntityManagerFactoryBean emf = new LocalContainerEntityManagerFactoryBean();
 		emf.setJpaVendorAdapter(new EclipseLinkJpaVendorAdapter());
-		emf.setPackagesToScan("io.spandana.api.entity");
+		emf.setPackagesToScan("io.spandana.movieflix_api.entity");
 		emf.setDataSource(dataSource());
 		emf.setJpaProperties(jpaProperties());
 		return emf;
@@ -34,7 +34,7 @@ public class JPAConfig {
 	public DataSource dataSource() {
 		DriverManagerDataSource ds = new DriverManagerDataSource();
 		ds.setDriverClassName("com.mysql.cj.jdbc.Driver");
-		ds.setUrl("jdbc:mysql://localhost:3306/example-db?useSSL=false");
+		ds.setUrl("jdbc:mysql://localhost:3306/movie-flix?useSSL=false");
 		ds.setUsername("root");
 		ds.setPassword("password");
 		return ds;
@@ -45,7 +45,7 @@ public class JPAConfig {
 		JpaTransactionManager txnMgr = new JpaTransactionManager(emf);
 		return txnMgr;
 	}
-
+	
 	private Properties jpaProperties() {
 		Properties prop = new Properties();
 		prop.setProperty(PersistenceUnitProperties.WEAVING, "false");

@@ -19,3 +19,4 @@ public class ServletInitializer extends AbstractAnnotationConfigDispatcherServle
 		return new String[] { "/api/*" };
 	}
 }
+
